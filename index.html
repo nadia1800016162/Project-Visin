@@ -1,0 +1,196 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Visualisasi</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="codelab-4-codelab-markdown"
+                  title="Tentang Pembuatan Visualisasi Informasi"
+                  environment="web"
+                  feedback-link="https://github.com/Mrc0113/codelab-4-codelab">
+	  
+	  
+	  <!--VISUALISASI INFORMASI-->
+      <google-codelab-step label="Pengantar" duration="2">
+ 
+        <center><h2><img src="D:\nadia\pengantar.png" duration</h2></center>
+      <p><strong>Visualisasi Informasi</strong> adalah Rekayasa dalam pembuatan gambar, diagram atau animasi untuk penampilan suatu sistem informasi, Visualisasi dalam bentuk gambar baik yang bersifat abstrak maupun nyata. </p><strong>Visualisasi Data</strong> merupakan representasi visual dan teknik interaksi dengan memanfaatkan indera penglihatan manusia yang diolah dalam pikiran sehingga memungkinkan pengguna dapat melihat, menjelajahi, dan memahami sejumlah besar informasi sekaligus.</p><strong>Apa yang akan kita buat ?</strong>
+        <img src="D:\nadia\foto.png" duration="2">
+      </p><strong>Untuk Apa Visualisasi Data ?</strong>
+      <p>Manfaat dari visualisasi data diantaranya adalah:</p><p>1. Memudahkan pengguna melihat, menjelajahi, dan memahami sejumlah informasi sekaligus</p><p>2. Membantu pengguna untuk memperoleh pengetahuan baru tentang sebuah proses</p><p>3. Membantu pengguna untuk menentukan keputusan.</p>
+
+      </google-codelab-step>
+	  
+	  <!--TAHAPAN VISUALISASI INFORMASI-->
+      <google-codelab-step label="Tahapan Visualisasi" duration="4">
+
+      <p>Untuk dapat menyajikan sejumlah besar informasi sekaligus maka kita perlu mengerjakan visualisasi ini secara bertahap. Tahapan yang dapat kita lakukan adalah sebagai berikut :</p><p>1. Menentuksn data row yang akan kita olah. Data row merupakan sekumpulan baris data yang memuat bebebrapa variabel informasi. Tabel dibawah ini merupakakan contoh data row. Data row dapat berasal dari satu atau beberapa tabel dalam sql, misalnya, atau berasal dari sumber lain misalnya API sebuah sistem atau file excel. Tahap pertama yang harus kita siapkan dalam visualisasi data adalah<strong> memastikan bahwa data yang kita miliki sudah dalam bentuk terstruktur</strong> dalam baris data. Contoh struktur baris data adalah sebagai berikut:</p><p>| nim | gender | semester | Ipk |</p><p>| - | - | - | - |</p><p>| 0786373 | L | 3 | 3.25 |</p><p> 0786374 | P | 3 | 3.45 |</p><p>1. Menyusun problem statement. Data row pada poin 1 memuat variabel gender, semester, dan ipk untuk mahasiswa dengan nim 0786373 adalah laki-laki yang sedang menempuh semester 3 dan memiliki IPK 3.25 Tetapi data tersebut belum memiliki informasi secara menyeluruh yang dapat memberikan pengetahuan tertentu. Oleh sebab itu kita perlu untuk menyusun problem statement yang dapat menggambarkan informasi apa saja yang akan disampaikan kepada pengguna. </p><p>Contoh problem statement berdasarkan baris data pada poin 1, misalnya: a). Bagaimana rata-rata IPK berdasarkan semester. b). Bagaimana perbandingan jumlah mahasiswa laki-laki dan perempuan. c). Bagaimana perbandingan jumlah mahasiswa laki-laki dan perempuan berdasarkan semester. d). Bagaimana perbandingan jumlah mahasiswa berdasarkan semester. e). Bagaimana perbandingan jumlah mahasiswa berdasarkan rentang IPK tertentu.</p><p>1. Membuat data tabel dalam format cross tabulation. Langkah berikutnya adalah menyusun cross tabulation berdasarkan baris data dan problem statement. Satu problem statement akan menghasilkan satu cross tabulation. Mungkin tahap ini akan memerlukan alogaritma untuk membuat data row menjadi format cross tabulation yang kita inginkan.</p><p>2. Menentukan teknik visualisasi. Teknik visualisasi merupakan bentuk visual yang digunakan untuk menampilkan data. secara umum teknik visualisasi terdiri dari Pie Chart (diagram lingkaran), Bar Chart (diagram batang), Line Chart (diagram garis), atau gabungan antara bar chart dan line chart. Pada tahap ini, kita menganalisis teknik yang tepat untuk setiap cross tabulation yang sudah dibuat pada tahap sebelumnya</p><p>3. Menentukan layout. Tahap layouting merupakan tahap menentukan posisi dari setiap visualisasi pada layar utama visualisasi agar pengguna dapat menerima sejumlah besar informasi sekaligus. Oleh sebe itu halaman visualisasi senaiknya merupakan single page sehingga aspek penyampaian informasi secara sekaligus dapat terpenuhi</p><p><strong>Tutorial ini menggunakan satu data row yang akan kita dimonstrasikan secara menyeluruh menggunakan tahap visualisasi.</strong></p>
+        
+
+      </google-codelab-step>
+	  
+	  <!--MENENTUKAN DATA ROW-->
+      <google-codelab-step label="Menentukan Data Row" duration="5">
+
+      <p>Data row dapat bersumber dari berbagai macam sumber daya terstruktur misalnya sql, json, excel, csv, atau xml. Data row tersebut harus disesuaikan dengan framework pengembangan yang kita gunakan . Misalnya jika kita menggunakan codeigniter sebagai framework pengembangan maka data row harus tersedia dalam format array PHP. Sumber data dapat berupa sql database atau JSON file</p><p>Studi kasus ini menggunakan sumber data dalam format file JSON. Oleh sebab itu kita memerlukan prosedur untuk mengkonversi data pada file JSON menjadi data dalam format Array PHP</p>
+      <p><strong>Menyiapkan Data dalam File JSON</strong></p>
+      <p>Studi kasus ini adalah menggunakan sumber data dari file JSON. Anda dapat memperoleh data tersebut di repositori github Untuk menggunakan file JSON tersebut project Codeigniter, buat folder pada proyek Codeigniter visin-gcharts/assets dan letakkan file json di dalamnya.</p>
+      <p><strong>Membaca File JSON</strong></p>
+      <P>Update file</P>
+      <p>application/controllers/visin.php</p>
+      <p>menjadi seperti berikut ini:</p>
+        <img src="D:\nadia\membaca file json.png" duration="2">
+      <p>Untuk sementara kode $this->load->view('visin'); dinonaktifkan terlebih dahulu untuk memeriksa apakah file json sudah berhasil dibaca. Pembacaan file json tersebut menggunakan fungsi file_get_contens(). Buka browser untuk memastikan file berhasil terbaca.</p>
+        <img src="D:\nadia\view visin.png" duration="2">
+      <p>Jika tampilan sudah seperti diatas maka file json sudah berhasil dibaca. Selanjutnya adalah memahami struktur data json untuk dilakukan konversi sesuai dengan struktur yang sesuai dengan data row yang diharapkan.</p>
+      <p><strong>Memahami Struktur Data JSON</strong></p>
+      <p>Struktur data yang berhasil dibaca adalah sebagai berikut:</p>
+        <img src="D:\nadia\memahami struktur json.png" duration="2">
+      <p>Kita asumsikan bahwa file json tersebut didefinisikan sebagai variabel data. Maka untuk mengakses data row pada data json tersebut adalah data[2][data']. Bilangan 2 merupakan index dari data dimana lokasi data row berada.</p>
+      <p>Data row yang kita harapkan adalah sebagai berikut:</p>
+      <p>23- Central Kivell Binder 50 19.99 999.50</p>
+      <p><strong>Mengkonversi data JSON menjadi Array PHP</strong></p>
+      <p>Setelah memahami struktur data json yang akan diolah, tahap berikutnya adalah mengkonversi data json tersebut dalam format Array PHP. Update kode pada visin.php menjadi seperti berikut ini</p>
+        <img src="D:\nadia\format array php.png" duration="2">
+      <p>Kode diatas memiliki tiga tahapan untuk dapat memperoleh data row. Tahapan tersebut adalah:</p>
+      <p>1. Membaca file json dalam bentuk string dengan variabel $dataStringJson.</p>
+      <p>2. Mengkonversi data string json menjadi Array json menggunakan json_decode().</p>
+      <p>3. Mengakses data row yang diperlukan. Dalam kasus ini data row berada pada index 2 dan variabel data.</p>
+      <p>Variabel $data=$dataJson[2]->data; merupakan variabel yang akan kita olah lebih lanjut.</p>
+      </google-codelab-step>
+	  
+    <!--MENYUSUN PROBLEM STATEMENT-->
+      <google-codelab-step label="Menyusun Problem Statement" duration="2">
+
+      <p>Berdasarkan data row yang sudah kita peroleh, problem statement dapat kita susun. Problem statement yang mungkin diperoleh dari data row tersebut diantaranya adalah:</p><p> 1. Bagaimana data penjualan berdasarkan region</p><p> 2. Bagaimana data penjualan berdasarkan sales</p><p>  3. Bagaimana data penjualan berdasarkan produk</p><p> 4. Bagaimana data penjualan berdasarkan bulan dan tahun tertentu</p><p>Problem statement tidak terbtas seperti yang dicontohkan diatas. Penentuan problem statement sangat dipengaruhi oleh target pengguna. Oleh sebab itu, sebaiknya kita menentukan target pengguna terlebih dahulu dan juga melakukan wawancara untuk memperoleh problem statement yang tepat.</p><p>Data penjualan kita peroleh dari variabel Units untuk setiap item yang terjual. Oleh sebab itu, pada tahap berikutnya kita perlu untuk menentukan alogaritma agar diperoleh akumasi jumlah units berdasarkan kategori yang kita tentukan.</p>
+        
+      </google-codelab-step>
+	  
+	  <!--MENETUKAN LAYOUT VISUALISASI-->
+      <google-codelab-step label="Menetukan Layout Visualisasi" duration="1">
+
+      <p>Layout visualisasi kita susun berdasarkan problem statement yang sudah dibuat. Studi kasus ini menggunakan 5 problem statement sehingga akan menghasilkan 5 grafik visualisasi. kita akan menentukan 5 grafik tersebut dalam layout berikut:</p>
+        <img src="D:\nadia\layout.png" duration="2">
+      <p>Nomer pada layout tersebut menandakan nomer visualisasi untuk problem statement terkait. kita perlu menyusun layout dalam Codeigniter yang kita buat. Update file visin.php menjadi seperti kode berikut:</p>
+        <img src="D:\nadia\update file visin.php.png" duration="2">
+      <p>Selanjutnya layout tersebut akan diisi dengan grafik visualisasi data</p>
+        
+      </google-codelab-step>
+	  
+	  <!--DATA PENJUALAN BERDASARKAN REGION-->
+	  <google-codelab-step label="Data Penjualan Berdasarkan Region" duration="1">
+
+    <p><strong>Format Tabulasi</strong></p><p>Format tabulasi yang kita harapkan adalah:</p>
+      <img src="D:\nadia\format tabulasi.png" duration="2">
+    <p><strong>Alogaritma Konversi</strong></p><p>Berdasarkan format data json yang ada, kita perlu untuk mengkonversi sehingga menjadi tabulasi yang diharapkan. Ikuti alogaritma berikut untuk membuatnya:</p><p>1. Buatlah variabel array C</p><P>2. Lakukan perulangan untuk setiap data</P><p>3. Jika belum terdapat region yang sama didalam C simpan varibel region dan unit</p><p>4. Jika terdapat region yang sama dalam C mala jumlahkan unit.</p><p>Alogaritma diatas kita konversi dalam PHP</p>
+      <img src="D:\nadia\konversi PHP.png" duration="2">
+    <p>Perhitungan tabulasi menggunakan fungsi region($data). Buka browser maka akan muncul hasil sebagai berikut:</p>
+      <img src="D:\nadia\region data.png" duration="2">
+    <p>Data akumulasi jumlah units berdasarkan region sudah diperoleh. Tapi format data tersebut belum seperti yang diharapkan. Sekarang kita perlu untuk mengkonversi data tersebut agar sesuai. Lakukan prosedur konversi sehingga fungsi region() menjadi seperti kode berikut:</p>
+      <img src="D:\nadia\fungsi region.png" duration="2">
+    <p>Perubahan kode diatas akan menghasilkan luaran sebagai berikut:</p>
+      <img src="D:\nadia\perubahan kode region.png" duration="2">
+    <p>Format data diatas sudah sesuai dengan tabulasi yang diharapkan. Selanjutnya kita dapat menggunakan data tersebut untuk divisualisasikan.</p><p><strong>Visualisasi</strong></p><p>Jika format data sudah sesuai maka selanjtnya adalah memvisualisasikan data menggunakan Google Charts. Pertama, pastikan kode pada file controllers/visin.php adalah seperti berikut:</p>
+      <img src="D:\nadia\controlvisin.png" duration="2">
+      <img src="D:\nadia\controlvisin2.png" duration="2">
+    <p>Selanjutnya update kode Javascript yang ada pada file view/visin.php menjadi seperti berikut:</p>
+      <img src="D:\nadia\update kode javascript.png" duration="2">
+      <img src="D:\nadia\update kode javascript2.png" duration="2">
+    <p>Kode diatas menunjukkan bahwa proses menggambar grafik dilakukan oleh fungsi drawChart(dataArray, type, container). Teknik ini dipakai untuk mengurangi penulisan kode secara berulang. Parameter pada fungsi drawChart() diantaranya adalah:</p><p>1. dataArray</p><p>Data dalam format Array yang diperoleh dari hasil persing data yang diperoleh dari variabel PHP. Proses persing data dilakukan menggunakan Javascript menggunakan fungsi Json.parse().<p>2. type</p><p>Tipe chart yang digunakan ('pie', 'bar', 'çolumn')</p><p>3.container</p><p>Nama id dari elemen yang akan digunakan sebagai container grafik. Mnemapilkan data penjualan berdasarkan region dilakukan oleh kode berikut:</p>
+      <img src="D:\nadia\data penjualan berdasarkan region.png" duration="2">
+    <p>Kode diatas menujukkan bahwa grafik digambar pada elemen dengan id region seperti yang ditunjukkan pada elemen HTML dibawah ini. (lihat kode pada bagian layout)</p>
+      <img src="D:\nadia\kode elemen dengan id region.png" duration="2">
+    <p>Jalankan browser maka akan terlihat tampilan seperti berikut:</p>
+      <img src="D:\nadia\browser id region.png" duration="2">
+
+      </google-codelab-step>
+
+    <!--DATA PENJUALAN BERDASARKAN SALES-->
+	  <google-codelab-step label="Data Penjualan Berdasarkan Sales" duration="1">
+
+    <p>Proses pengolahan data untuk mengerjakan problem statement ini adalah seperti pada visualisasi sebelumnya. Pada bagian ini akan ditampilkan kode-kode yang berkaitan dengan visualisasi yang dimaksud.</p><p>Untuk membuat visualisasi penjualan berdasarkan sales, update file controllers/visin.php sehingga menjadi seperti berikut:</p>
+      <img src="D:\nadia\update penjualan berdasrkan sales.png" duration="2">
+      <img src="D:\nadia\update file penjualan berdasarkan sales2.png" duration="2">
+    <p>Update juga file view/visin.php menjadi seperti kode berikut:</p>
+      <img src="D:\nadia\Update juga file.png" duration="2">
+    <p>Perubahan kode-kode diatas akan menghasilkan tampilan sebagai berikut:</p>
+      <img src="D:\nadia\perubahan kode-kode diatas.png" duration="2">
+        
+      </google-codelab-step>
+
+    <!--DATA PENJUALAN BERDASARKAN PRODUK-->
+	  <google-codelab-step label="Data Penjualan Berdasarkan Produk" duration="1">
+
+    <p>Update file controllers/visin,php</p>
+      <img src="D:\nadia\penjualan berdasarkan produk.png" duration="2">
+      <img src="D:\nadia\penjualan berdasarkan produk2.png" duration="2">
+    <p>Update file views/visin.php</p>
+      <img src="D:\nadia\update file produk.png" duration="2">
+    <p>Tampilan hasil:</p>
+      <img src="D:\nadia\tampilan hasil produk.png" duration="2">
+
+      </google-codelab-step>
+
+    <!--DATA PENJUALAN BERDASARKAN BULAN DI TAHUN TERTENTU-->
+    <google-codelab-step label="Data Penjualan Berdasarkan Bulan Di Tahun tertentu" duration="1">
+
+    <p>Struktur data yang diharapkan untuk menampilkan data penjualan berdasarkan bulan di tahun adalah sebagai berikut:</p>
+      <img src="D:\nadia\struktur data ditahun tertentu.png" duration="2">
+    <p>Struktur diatas akan menghasilkan data yang dikelompokkan berdasarkan bulan dan tahun.<p>Update file controllers/visin.php:</p>
+      <img src="D:\nadia\menghasilkan data ditahun tertentu.png" duration="2">
+      <img src="D:\nadia\menghasilkan data ditahun tertentu2.png" duration="2">
+      <img src="D:\nadia\menghasilkan data ditahun tertentu3.png" duration="2">
+    <p>Variabel $result yang dihasilkan dari program diatas memiliki struktur sebagai berikut:</p>
+      <img src="D:\nadia\variabel result.png" duration="2">
+    <p>Bilangan '1' dan '2' merupakan bulan yang diperoleh dari data OrderDate. Struktur tersebut belum sesuai dengan struktur yang diharapkan. Oleh sebab itu perlu dilakukan proses lebih lanjut untuk memperoleh sturktur data yang diharapkan.</p><p>Selanjutnya, update juga file view/visin.php:</p>
+      <img src="D:\nadia\update juga file ditahun tertentu.png" duration="2">
+    <p>Tampilan yang dihasilkan dari program diatas adalah:</p>
+      <img src="D:\nadia\tampilan hasil ditahun tertentu.png" duration="2">
+    
+        
+      </google-codelab-step>
+
+  <!--KESIMPULAN-->
+  <google-codelab-step label="Kesimpulan" duration="1">
+
+  <p>Bagian terpenting dari visualisasi data adalah menentukan problem statement. Problem statement juga menentukan alogaritma yang kita gunakan untuk menghasilkan struktur data yang tepat.</p><p>Struktur data yang sesuai dengan Google Chart secara umum adalah sebagai berikut:</p>
+    <img src="D:\nadia\struktur data google charts.png" duration="2">
+  <p>Struktur data tersebut dapat diterapkan di semua teknik visualisasi yang disediakan oleh Google Charts, kecuali teknik PieChart yang hanya memerlukan satu variabel saja.</p>
+        
+      </google-codelab-step>
+
+  <!--TENTANG PENULIS-->
+  <google-codelab-step label="Tentang Penulis" duration="1">
+
+    <img src="D:\nadia\NADIA.JPG" duration="2">
+  <p>Nadia Muliya (1800016162) merupakan mahasiswa Semester 6 Program Studi Sistem Informasi Universitas Ahmad Dahlan Yogyakarta.</p>       
+   
+      </google-codelab-step>
+
+
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>
